@@ -3,15 +3,20 @@
 using namespace std;
 int main() {
 	
+
 	string inventory[7];
 	int room = 1;
 	string input = "potato";
 	int PlayerHealth = 100;
+	srand(time(NULL));
+	
+	void Battlesystem();
 
 	while (input != "quit") {
 
-		for (int i = 0; i < 6; i++)
-			cout << endl << endl;
+		for (int i = 0; i < 7; i++)
+			cout << inventory[i] << " ";
+		cout << endl << endl;
 		cout << "your health: " << PlayerHealth << endl << endl;
 
 		switch (room) {
@@ -92,9 +97,14 @@ int main() {
 			if (input == "North")
 				room = 6;
 		
+		for (int i = 0; i < 7; i++)
+		
+		BattleSystem();
+		system("pause");
+		
 			break;
 
-		case 8://Good ending :) "Working today" idk about battle sim as of tommorow or maybe i have time.
+		case 8://Good ending :) "Working today" idk about battle sim as of tommorow or maybe i have time.//WIP
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
 			cout << "Your legs is hurting painful and blood is coming out, Which supplies do you think it will help you to stop the blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
 			getline(cin, input);
@@ -106,10 +116,9 @@ int main() {
 				room = 3;
 		
 			
-			
 			break;
 
-		case 9:
+		case 9://WIP
 			cout << "You in room 9, you can go North or East" << endl;
 			cin >> input;
 			if (input == "North")
@@ -118,7 +127,7 @@ int main() {
 				room = 8;
 			break;
 
-		case 10:
+		case 10://WIP
 			cout << "You in room 10, You can go only South" << endl;
 			cin >> input;
 			if (input == "South")
@@ -135,16 +144,51 @@ int main() {
 		cout << "Congrats, you got the good ending :). It's unknown why you were feeling nervous about fearing you're being watched, but who knows the mystery will never be solved." << endl;
 }//end main
 
-void Battlesim() {//Tomorrow or friday
+void BattleSystem() {//friday and monday
+	int Monsterhealth = 200;
+	int hit;
+	int choice;
 
+	cout << endl << "--------BATTLE!!!-------------" << endl;
+	
+	while (PlayerHealth > 0 && Monsterhealth > 0) {
+		cout << "press 1 to eat the apple to heal, 2 to use bandages for mega heal!" << endl;
+		cin >> choice;
+		switch (choice) {
+		case 1:
+			if (inventory[7] == "Axe") {
+				hit = rand() % 11 + 10; //swing
+				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
+				Monsterhealth -= hit;
+			}
+			else {
+				hit = rand() % 5 + 2; //swing
+				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
+				Monsterhealth -= hit;
 
+				cout << "the monster attacks you 20 dmg" << endl;
+				PlayerHealth -= 20;
+			}
+			break;
+		case 2:
+			if (inventory[1] == "apples") {
+				cout << "Eating noises" << endl;
+				inventory[1] = " ";
+				PlayerHealth += 50;
+			}
 
+			break;
+		case 3:
+			hit = rand() % 100;
+			if (hit > 50) {
+				cout << "You did it! But you're still stuck and theres no freedom :(" << endl;
+				Monsterhealth = 0;
+			}
+			break;
+			cout << "Playerhealth is now " << PlayerHealth << endl;
+			cout << "Monsterhealth is now " << Monsterhealth << endl;
 
-
-
-
-
-
-
-
+		}//end switch
+	}	
+		cout << "--------------------------------------------" << endl;
 }
