@@ -75,21 +75,23 @@ int main() {
 
 		case 5:
 			cout << "Since you decided to continue on. The forest gets darker every time you keep going forward without turning back......... Wait, you are now lost.... The pathway is nowhere to be found........ You have now somehow gone too far to explore the unnatural forest. You suddenly feel about to panick panicked, but right, panicked you're panicking. The nerves suddenly come back and warn you again if something is near you. You look everywhere, and you see the same dear, with its glowing eyes see-You stare at it and then suddenly..................... The deer begins to stand with it's 2 legs and......... his mouth is wide open and there's blood on it......... and begins to charge at you. There's no going back because you're stuck.  You must run immediately, but the only way to outrun it is to 'Go Right' and that's all." << endl;
-			cin >> input;
+			getline(cin, input);
+			
 			if (input == "Right" || input.compare("Go Right") == 0)
 				room = 6;
 
 			break;
 
 		case 6:
-			cout << "The deer's claws are now ready to charge...... it seems like you're running away from a Wendigo, an urban legend that is a humanoid. The deer that is said to roam in a forest. You keep running and suddenly you keep getting tired. You have no choice but to eat the apple or save it. Right about when you are running in a straight line, luckily there's another way to go up to south, And you notice that it's a dead end with no way." << endl;
-			cin >> input;
+			cout << "The deer's claws are now ready to charge...... it seems like you're running away from a Wendigo, an urban legend that is a humanoid. The deer is said to roam in a forest. You keep running and suddenly you keep getting tired. You have no choice but to eat the apple or save it. Right about when you are running in a straight line, luckily there's another way to go and south, and you notice that it's a dead end with no way. You're only option is to type 'Follow the path' to continue the story" << endl;
+			getline(cin, input);
+		
 			if (input == "Follow" || input.compare("Follow the path") == 0)
 				room = 7;
 
 			break;
 
-		case 7://boss battle........ tomorrow SPOILER ALERT!!!!!!!!!! YOU'RE KIDNAPPED BUT NO DEATH :) but its the bad ending for choosing right to go wrong way (Right = go to the forest) :(
+		case 7:
 			cout << "Uh oh, you're trapped. You have nowhere to go. Meanwhile Wendigo has stopped chasing you, but  he is in front of you. Now as of--" << endl;
 			cout << "Wendigo: *GROWLS UPSETELY*" << endl;
 			cout << "Uhhhhhhh . It seems like Wendigo doesn't want you to kill you wants to fight you and trap you forever,"  << endl;
@@ -99,8 +101,8 @@ int main() {
 		
 			break;
 
-		case 11:
-		
+		case 11://boss battle but its the bad ending for choosing right to go wrong way (Right = go to the forest) :(
+			cout << "You have an AXE, It's time for a BOSS BATTLE" << endl;
 			
 			for (int i = 0; i < 7; i++)
 
@@ -109,7 +111,7 @@ int main() {
 
 		
 		
-		case 8://Good ending :) "Working today" idk about battle sim as of tommorow or maybe i have time.//WIP
+		case 8://Good ending :) "Working today and tommorow"
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
 			cout << "Your legs is hurting painful and blood is coming out, Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
 			getline(cin, input);
@@ -165,7 +167,7 @@ int main() {
 }//end main
 
 void BattleSystem() {//friday and monday
-	int Monsterhealth = 200;
+	int Monsterhealth = 220;
 	int hit;
 	int choice;
 
