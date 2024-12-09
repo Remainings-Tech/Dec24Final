@@ -166,7 +166,7 @@ int main() {
 		cout << "Congrats, you got the good ending :). It's unknown why you were feeling nervous about fearing you're being watched, but who knows the mystery will never be solved." << endl;
 }//end main
 
-void BattleSystem() {//friday and monday
+void BattleSystem() {
 	int Monsterhealth = 220;
 	int hit;
 	int choice;
