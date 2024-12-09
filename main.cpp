@@ -94,31 +94,51 @@ int main() {
 			cout << "Wendigo: *GROWLS UPSETELY*" << endl;
 			cout << "Uhhhhhhh . It seems like Wendigo doesn't want you to kill you wants to fight you and trap you forever,"  << endl;
 			cin >> input;
-			if (input == "North")
-				room = 6;
-		
-		for (int i = 0; i < 7; i++)
-		
-		BattleSystem();
-		system("pause");
+			if (input == "South")
+				room = 11;
 		
 			break;
 
+		case 11:
+		
+			
+			for (int i = 0; i < 7; i++)
+
+				BattleSystem();
+			system("pause");
+
+		
+		
 		case 8://Good ending :) "Working today" idk about battle sim as of tommorow or maybe i have time.//WIP
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
-			cout << "Your legs is hurting painful and blood is coming out, Which supplies do you think it will help you to stop the blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
+			cout << "Your legs is hurting painful and blood is coming out, Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
 			getline(cin, input);
 	
+			if (inventory[0] != "Bandages") {
+				inventory[0] = "Bandages";
+				cout << "You have bandages" << endl;
+
+			}
+			
 			if (input == "Continue" || input.compare("Keep going") == 0)
 				room = 9;
 			
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 3;
-		
+		    
+			if (input == "Bandages") {
+				if (inventory[0] == "Bandages") {
+					cout << "You used Bandages to stop the wound" << endl;
+					inventory[0] = " ";
+					PlayerHealth += 20;
+				}
+				else cout << "You don't have any bandages!" << endl;
+				PlayerHealth -= 20;
+			}
 			
 			break;
 
-		case 9://WIP
+		case 9://WIP TODAY AND TOMORROW
 			cout << "You in room 9, you can go North or East" << endl;
 			cin >> input;
 			if (input == "North")
@@ -127,7 +147,7 @@ int main() {
 				room = 8;
 			break;
 
-		case 10://WIP
+		case 10://WIP TODAY AND TOMORROW
 			cout << "You in room 10, You can go only South" << endl;
 			cin >> input;
 			if (input == "South")
