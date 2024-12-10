@@ -11,11 +11,12 @@ int main() {
 	int room = 1;
 	string input = "potato";
 	void Battlesystem();
+	bool hasWon = false;
 
 	while (input != "quit") {
 
 		for (int i = 0; i < 7; i++)
-			cout << inventory[i] << " ";
+		cout << inventory[i] << " ";
 		cout << endl << endl;
 		cout << "your health: " << PlayerHealth << endl << endl;
 
@@ -119,7 +120,7 @@ int main() {
 			break;
 
 		case 11://boss battle but its the bad ending for choosing right to go wrong way (Right = go to the forest) :(
-			cout << "You have an AXE, It's time for a BOSS BATTLE" << endl;
+			cout << "You now have an AXE, It's time for a BOSS BATTLE" << endl;
 			
 			for (int i = 0; i < 7; i++)
 
@@ -169,7 +170,9 @@ int main() {
 
 		case 10://The good ending for choosing the right pathway.
 			cout << "Since you handle the lion, you feel better, and you're ready to run. While you're still running, the lion is no longer seen and then in the distance, you see a town with civilians and they're doing their normal routine. You have finally reached your destination with some help. The poeple are very friendly but you don't see your friends. Type 'Go back' to go back but, however, you have finally reached your journey :)" << endl;
+			cout << "the end" << endl;
 			getline(cin, input);
+			hasWon = true;
 			
 			if (input == "Back" || input.compare("Go Back") == 0)
 				room = 9;
@@ -218,10 +221,20 @@ void BattleSystem() {//friday and monday
 				cout << "Eating noises" << endl;
 				inventory[1] = " ";
 				PlayerHealth += 50;
+			
 			}
-
+		
 			break;
 		case 3:
+			if (inventory[0] == "Bandages") {
+				cout << "uses bandages" << endl;
+				inventory[0] = " ";
+				PlayerHealth += 50;
+
+			}
+            
+			break;
+		case 4:
 			hit = rand() % 100;
 			if (hit > 50) {
 				cout << "You did it! But you're still stuck and theres no freedom :(" << endl;
