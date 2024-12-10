@@ -1,15 +1,15 @@
 #include<iostream>
 #include<string>
 using namespace std;
-int main() {
-	
 
-	string inventory[7];
+//global variables (can be seen and used by ALL functions)mo says: move inventory and player health here!
+int PlayerHealth = 100;
+string inventory[7];
+//mo says: move inventory and player health here!
+int main() {
+
 	int room = 1;
 	string input = "potato";
-	int PlayerHealth = 100;
-	srand(time(NULL));
-	
 	void Battlesystem();
 
 	while (input != "quit") {
@@ -94,11 +94,28 @@ int main() {
 		case 7:
 			cout << "Uh oh, you're trapped. You have nowhere to go. Meanwhile Wendigo has stopped chasing you, but  he is in front of you. Now as of--" << endl;
 			cout << "Wendigo: *GROWLS UPSETELY*" << endl;
-			cout << "Uhhhhhhh . It seems like Wendigo doesn't want you to kill you wants to fight you and trap you forever,"  << endl;
-			cin >> input;
-			if (input == "South")
+			cout << "Uhhhhhhh. It seems like Wendigo doesn't want you to kill you and wants to fight you and trap you forever. I really don't know how to say this but, you're trapped now. But wait. You have all the supplies. Maybe you can make a weapon to combine some of your items. How about you make an axe? Type 'Craft a stick, a rock and a knife' to create an axe and if you're finished, Type 'Ready' to begin the fight"  << endl;
+			getline(cin, input);
+			
+			if (input == "Ready")
 				room = 11;
-		
+		    
+			else if (input == "a stick, a rock, a knife" || input.compare("Craft a stick, a rock and a knife") == 0)
+				cout << "You Crafted an axe!!!!!!!!!!!!!!" << endl;
+			    cout <<  "  ,  / \  ." << endl;
+			    cout << "   //`-||-'\\" << endl;
+			    cout << " (| -= || = -| )" << endl;
+                cout <<  " \\, -|| -.//" << endl;
+			    cout <<      "` || '  " << endl;
+			    cout <<        "||" << endl;
+		        cout <<        "||" << endl;
+	            cout <<        "||" << endl;
+			    cout <<        "||" << endl;
+			    cout <<        "||" << endl;
+	            cout <<        "()" << endl;
+			
+				inventory[0, 4, 5, 6] = "Bandages, apples, raw steak, Axe";
+			
 			break;
 
 		case 11://boss battle but its the bad ending for choosing right to go wrong way (Right = go to the forest) :(
@@ -106,12 +123,12 @@ int main() {
 			
 			for (int i = 0; i < 7; i++)
 
-				BattleSystem();
+		    BattleSystem();
 			system("pause");
 
 		
 		
-		case 8://Good ending :) "Working today and tommorow"
+		case 8://Good ending :)
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
 			cout << "Your legs is hurting painful and blood is coming out, Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
 			getline(cin, input);
@@ -134,7 +151,7 @@ int main() {
 					inventory[0] = " ";
 					PlayerHealth += 20;
 				}
-				else cout << "You don't have any bandages!" << endl;
+				else cout << "You don't have any bandages! or Wrong item" << endl;
 				PlayerHealth -= 20;
 			}
 			
@@ -147,15 +164,17 @@ int main() {
 				room = 10;
 			else if (input == "East")
 				room = 8;
+			
 			break;
 
-		case 10://WIP TODAY AND TOMORROW
-			cout << "You in room 10, You can go only South" << endl;
-			cin >> input;
-			if (input == "South")
+		case 10://The good ending for choosing the right pathway.
+			cout << "Since you handle the lion, you feel better, and you're ready to run. While you're still running, the lion is no longer seen and then in the distance, you see a town with civilians and they're doing their normal routine. You have finally reached your destination with some help. The poeple are very friendly but you don't see your friends. Type 'Go back' to go back but, however, you have finally reached your journey :)" << endl;
+			getline(cin, input);
+			
+			if (input == "Back" || input.compare("Go Back") == 0)
 				room = 9;
+			
 			break;
-
 
 		}
 	}//end of game loop
@@ -166,7 +185,9 @@ int main() {
 		cout << "Congrats, you got the good ending :). It's unknown why you were feeling nervous about fearing you're being watched, but who knows the mystery will never be solved." << endl;
 }//end main
 
-void BattleSystem() {
+void BattleSystem() {//friday and monday
+	
+	//battlesystem LOCAL variables (can only be seen and used by THIS function)
 	int Monsterhealth = 220;
 	int hit;
 	int choice;
@@ -207,6 +228,7 @@ void BattleSystem() {
 				Monsterhealth = 0;
 			}
 			break;
+			
 			cout << "Playerhealth is now " << PlayerHealth << endl;
 			cout << "Monsterhealth is now " << Monsterhealth << endl;
 
