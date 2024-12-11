@@ -103,17 +103,12 @@ int main() {
 		    
 			else if (input == "a stick, a rock, a knife" || input.compare("Craft a stick, a rock and a knife") == 0)
 				cout << "You Crafted an axe!!!!!!!!!!!!!!" << endl;
-			    cout <<  "  ,  / \  ." << endl;
-			    cout << "   //`-||-'\\" << endl;
-			    cout << " (| -= || = -| )" << endl;
-                cout <<  " \\, -|| -.//" << endl;
-			    cout <<      "` || '  " << endl;
-			    cout <<        "||" << endl;
-		        cout <<        "||" << endl;
-	            cout <<        "||" << endl;
-			    cout <<        "||" << endl;
-			    cout <<        "||" << endl;
-	            cout <<        "()" << endl;
+			    cout << "_, -," << endl;
+			    cout << "T_  |" << endl;
+			    cout << "||`-'" << endl;
+			    cout << "||" << endl;
+			    cout << "||" << endl;
+			    
 			
 				inventory[0, 4, 5, 6] = "Bandages, apples, raw steak, Axe";
 			
@@ -126,8 +121,6 @@ int main() {
 
 		    BattleSystem();
 			system("pause");
-
-		
 		
 		case 8://Good ending :)
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
@@ -158,19 +151,23 @@ int main() {
 			
 			break;
 
-		case 9://WIP TODAY AND TOMORROW
-			cout << "You in room 9, you can go North or East" << endl;
-			cin >> input;
-			if (input == "North")
+		case 9:
+			cout << "The road is pretty isolated and calm, the peaceful winds blowing through the trees, the beautiful sun hitting your body, and water. You still continued on until you notice that in the distance, you see some lights but it isn't the sun, the sun location is somehwere around 90 degrees, but you also hear some voices too. But as of now hearing it, you're still left spechless, should you Continue on? Type 'Keep going' or if you want to go back, type 'Go Back'!" << endl;
+			cout << "I hate to bring you up, there's a lion that is fully awake and its slowly coming up to you, its growling and it's ready to eat.Wait, you have supplies on the other hand, which supplies do you think that can stop the lion growing and feel happy? Bandages, a stick, a rock, a knife, apples or a raw steak?" << endl;
+			getline(cin, input);
+		
+			if (input == "Continue" || input.compare("Keep going") == 0)
 				room = 10;
-			else if (input == "East")
+		
+			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 8;
 			
 			break;
 
 		case 10://The good ending for choosing the right pathway.
-			cout << "Since you handle the lion, you feel better, and you're ready to run. While you're still running, the lion is no longer seen and then in the distance, you see a town with civilians and they're doing their normal routine. You have finally reached your destination with some help. The poeple are very friendly but you don't see your friends. Type 'Go back' to go back but, however, you have finally reached your journey :)" << endl;
+			cout << "Since you handle the lion, you're ready to run. While you're still running, the lion is no longer seen and then, in the distance, you see a town with civilians and they're doing their normal routine. You have finally reached your destination with some help. The people are very friendly, but you don't see your friends. Type 'Go back' to go back but, however, you have finally reached your journey :)" << endl;
 			cout << "the end" << endl;
+		
 			getline(cin, input);
 			hasWon = true;
 			
@@ -182,7 +179,7 @@ int main() {
 		}
 	}//end of game loop
 	if (PlayerHealth <= 0)
-		cout << "You got the Bad ending Due to being kidnapped from wendigo or you're now stuck in this gloomy forest" << endl;
+		cout << "You got a bad ending because to losing the battle against Wendigo, or you're now stuck in this gloomy forest. " << endl;
 	
 	else
 		cout << "Congrats, you got the good ending :). It's unknown why you were feeling nervous about fearing you're being watched, but who knows the mystery will never be solved." << endl;
@@ -190,7 +187,7 @@ int main() {
 
 void BattleSystem() {//friday and monday
 	
-	//battlesystem LOCAL variables (can only be seen and used by THIS function)
+	//Battlesystem LOCAL variables (can only be seen and used by THIS function)
 	int Monsterhealth = 220;
 	int hit;
 	int choice;
