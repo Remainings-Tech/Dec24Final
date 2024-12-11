@@ -66,6 +66,16 @@ int main() {
 
 		case 4://bad ending :(
 			cout << "Interesting choice. You decided to go the right way, where you enter a new forest, but something isn’t quite right. It’s dark, gloomy, foggy, and eerie. Suddenly, you trip and realize your leg doesn’t hurt anymore. It seems like you've ended up in a forest full of unnatural things. Suddenly, your nervous system detects signs of being watched, and you start to feel uncomfortable. As you continue, you notice a deer in the distance, but something isn’t quite right. The deer’s eyes begin to glow, and then, suddenly, it stands up on two legs, its hands turning into claw-like fingers, before it runs away. Now this is pretty crazy, should you continue the pathway to end up at a mountain along? Type 'Continue On'. or  Type 'Go Back' to get rid of your nervous" << endl;
+			cout << "\|/   \|/" << endl;
+			cout << " \    / " << endl;
+			cout << "  \_ / ___   ___" << endl;
+			cout << "   o o - ' '''   '" << endl;
+			cout << "    O -.        | " << endl;
+			cout << "       | |'''| |" << endl;
+			cout << "        ||   | |" << endl;
+			cout << "        ||    ||" << endl;
+			cout << "        '     '" << endl;
+		
 			getline(cin, input);
 
 			if (input == "Continue" || input.compare("Continue On") == 0)
