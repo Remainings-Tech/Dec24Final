@@ -1,3 +1,4 @@
+#include<Windows.h>
 #include<iostream>
 #include<string>
 using namespace std;
@@ -5,6 +6,7 @@ using namespace std;
 //global variables (can be seen and used by ALL functions)mo says: move inventory and player health here!
 int PlayerHealth = 100;
 string inventory[7];
+
 //mo says: move inventory and player health here!
 int main() {
 
@@ -153,7 +155,7 @@ int main() {
 
 		case 9:
 			cout << "The road is pretty isolated and calm, the peaceful winds blowing through the trees, the beautiful sun hitting your body, and water. You still continued on until you notice that in the distance, you see some lights but it isn't the sun, the sun location is somehwere around 90 degrees, but you also hear some voices too. But as of now hearing it, you're still left spechless, should you Continue on? Type 'Keep going' or if you want to go back, type 'Go Back'!" << endl;
-			cout << "I hate to bring you up, there's a lion that is fully awake and its slowly coming up to you, its growling and it's ready to eat.Wait, you have supplies on the other hand, which supplies do you think that can stop the lion growing and feel happy? Bandages, a stick, a rock, a knife, apples or a raw steak?" << endl;
+			cout << "I hate to bring you up, there's a lion that is fully awake and its slowly coming up to you, its growling, and it's ready to eat. Wait, you have supplies on the other hand, which supplies do you think that can stop the lion growing and feel happy? Bandages, a stick, a rock, a knife, apples or a raw steak? Type 'Bandages' or 'a stick' or, 'a rock' or, 'a knife' or, 'raw steak'?" << endl;
 			getline(cin, input);
 		
 			if (input == "Continue" || input.compare("Keep going") == 0)
@@ -162,6 +164,15 @@ int main() {
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 8;
 			
+			if (input == "steak" || input.compare("raw steak") == 0){
+				if (inventory[5] == "raw steak") {
+					cout << "You feed the lion with a steak and he seems happy." << endl;
+					inventory[5] = " ";
+				}
+				else cout << "The lion charges at you and attacks you. Likely because you gave him the wrong item!!!" << endl;
+				PlayerHealth -= 60;
+			}
+		
 			break;
 
 		case 10://The good ending for choosing the right pathway.
@@ -188,13 +199,13 @@ int main() {
 void BattleSystem() {//friday and monday
 	
 	//Battlesystem LOCAL variables (can only be seen and used by THIS function)
-	int Monsterhealth = 220;
+	int Wendigohealth = 220;
 	int hit;
 	int choice;
 
 	cout << endl << "--------BATTLE!!!-------------" << endl;
 	
-	while (PlayerHealth > 0 && Monsterhealth > 0) {
+	while (PlayerHealth > 0 && Wendigohealth > 0) {
 		cout << "press 1 to eat the apple to heal, 2 to use bandages for mega heal!" << endl;
 		cin >> choice;
 		switch (choice) {
@@ -202,12 +213,12 @@ void BattleSystem() {//friday and monday
 			if (inventory[7] == "Axe") {
 				hit = rand() % 11 + 10; //swing
 				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
-				Monsterhealth -= hit;
+				Wendigohealth -= hit;
 			}
 			else {
 				hit = rand() % 5 + 2; //swing
 				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
-				Monsterhealth -= hit;
+				Wendigohealth -= hit;
 
 				cout << "the monster attacks you 20 dmg" << endl;
 				PlayerHealth -= 20;
@@ -235,12 +246,12 @@ void BattleSystem() {//friday and monday
 			hit = rand() % 100;
 			if (hit > 50) {
 				cout << "You did it! But you're still stuck and theres no freedom :(" << endl;
-				Monsterhealth = 0;
+				Wendigohealth = 0;
 			}
 			break;
 			
 			cout << "Playerhealth is now " << PlayerHealth << endl;
-			cout << "Monsterhealth is now " << Monsterhealth << endl;
+			cout << "Wendigohealth is now " << Wendigohealth << endl;
 
 		}//end switch
 	}	
