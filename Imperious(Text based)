@@ -4,15 +4,15 @@
 using namespace std;
 
 //global variables (can be seen and used by ALL functions)mo says: move inventory and player health here!
-int PlayerHealth = 100;
-string inventory[7];
+int PlayerHealth = 80;
+string inventory[8];
 
 //mo says: move inventory and player health here!
 int main() {
 
 	int room = 1;
 	string input = "potato";
-	void Battlesystem();
+	void BattleSystem();
 	bool hasWon = false;
 
 	while (input != "quit") {
@@ -24,7 +24,7 @@ int main() {
 
 		switch (room) {
 		case 1:
-			cout << "Hey you, you're finally awake. Don't panick, but you're in a forest in the middle of nowhere. That means there're trees everywhere, no humans or animals but there's some nice looking mountains. In the distance, you see a plain of grass with flowers up in the south where there's only 1 pathway that is covered with dirt and that's it. Should we follow the dirt path? Press 'Yes' to follow the path? It's the only choice'" << endl;
+			cout << "Hey you, you're finally awake. Don't panick, but you're in a forest in the middle of nowhere. That means there're trees everywhere; no humans or animals. There are some nice looking mountains. In the distance, you see a plain of grass with flowers up in the south where there's only 1 pathway that is covered with dirt and that's it. Should we follow the dirt path? Press 'Yes' to follow the path? It's the only choice.'" << endl;
 			getline(cin, input);
 			if (input == "Yes")
 				room = 2;
@@ -37,17 +37,19 @@ int main() {
 			cout << "------------------------Nice, it seems like you decided to follow the dirt pathway, and now you're in a field with a bunch of flowers and plants with butterflies and insects. Beautiful isn't it? Now you may be wondering. How did you end up in a forest and somehow 'survive'? Well, here's what happened. You and your friends went up to the mountains and had one of the best days ever. The situation is that the mountains you are climbing are very risky and there's a chance you will fall off. Apparently, while you made it atop the mountain and planned to go down. You accidentally trip on a rock and suddenly..... You fell........ You were panicking, and your friends saw your body falling and felt shocked horror and screams. You now hit the ground, which causes you to be knocked out and, luckily, you somehow survive, but it's pretty hard to walk since you have a broken leg. Now that I explain the backstory, it's time to move on. You start wandering the plains, and you notice there's a river that is flowing west and there's some supplies. Press 'Go forward' to continue, but you can 'Go Back' to the forest, since there's nothing you can do there----------------------------" << endl;
 			
 			getline(cin, input);
-			if (input == "Foward" || input.compare("Go Foward") == 0)
+			if (input == "foward" || input.compare("Go foward") == 0)
 				room = 3;
 
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 1;
 
+			
+
 			break;
 
 		case 3:
 			cout << "You notice a sign showing where the road leads. To the left is a road that seems to be a route, but you start feeling uneasy due to the lack of cars and the sensation of being watched. And to the right, it leads more trees which is assuming you will go to another forest that leads a waterfall mountain. Which path should you go? left or right?" << endl;
-			if (inventory[0, 1, 2, 3, 4, 5] != "Bandages, a stick, a rock, a knife, apples, raw steak")
+			if (inventory[0,1,2,3,4,5] != "Bandages, a stick, a rock, a knife, apples, raw steak")
 				cout << "Meanwhile, Hey Look, theres some Bandages, a stick, a rock, a knife, apples and a raw steak on the ground, Type 'Pick up all the items' that seems pretty important" << endl;
 
 			getline(cin, input);
@@ -60,7 +62,7 @@ int main() {
 
 			else if (input == "Bandages, a stick, a rock, a knife, apples, raw steak" || input.compare("Pick up all the items") == 0)
 				cout << "You got 6 items in your inventory!!!!!!!!!!!!!!" << endl;
-			inventory[0, 1, 2, 3, 4, 5] = "Bandages, a stick, a rock, a knife, apples, raw steak";
+			inventory[0,1,2,3,4,5] = "Bandages, a stick, a rock, a knife, apples, raw steak";
 
 			break;
 
@@ -122,8 +124,11 @@ int main() {
 			    cout << "||" << endl;
 			    
 			
-				inventory[0, 4, 5, 6] = "Bandages, apples, raw steak, Axe";
-			
+				inventory[0,4,5,6] = "Bandages, apples, raw steak, Axe";
+		    
+				system("Color C4");
+				
+
 			break;
 
 		case 11://boss battle but its the bad ending for choosing right to go wrong way (Right = go to the forest) :(
@@ -133,7 +138,7 @@ int main() {
 
 		    BattleSystem();
 			system("pause");
-		
+
 		case 8://Good ending :)
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
 			cout << "Your legs is hurting painful and blood is coming out, Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
@@ -141,25 +146,19 @@ int main() {
 	
 			if (inventory[0] != "Bandages") {
 				inventory[0] = "Bandages";
-				cout << "You have bandages" << endl;
-
+				cout << "You have bandages, You now have 20+ health" << endl;
+				inventory[0] = " ";
+				PlayerHealth += 20;
 			}
-			
+			else cout << "you use the wrong item" << endl;
+			    PlayerHealth -= 20;
+
 			if (input == "Continue" || input.compare("Keep going") == 0)
 				room = 9;
 			
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 3;
 		    
-			if (input == "Bandages") {
-				if (inventory[0] == "Bandages") {
-					cout << "You used Bandages to stop the wound" << endl;
-					inventory[0] = " ";
-					PlayerHealth += 20;
-				}
-				else cout << "You don't have any bandages! or Wrong item" << endl;
-				PlayerHealth -= 20;
-			}
 			
 			break;
 
@@ -206,7 +205,7 @@ int main() {
 		cout << "Congrats, you got the good ending :). It's unknown why you were feeling nervous about fearing you're being watched, but who knows the mystery will never be solved." << endl;
 }//end main
 
-void BattleSystem() {//friday and monday
+void BattleSystem() {
 	
 	//Battlesystem LOCAL variables (can only be seen and used by THIS function)
 	int Wendigohealth = 220;
