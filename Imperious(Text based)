@@ -64,7 +64,13 @@ int main() {
 
 			else if (input == "Bandages, a stick, a rock, a knife, apples, raw steak" || input.compare("Pick up all the items") == 0)
 				cout << "You got 6 items in your inventory!!!!!!!!!!!!!!" << endl;
-			inventory[0,1,2,3,4,5] = "Bandages, a stick, a rock, a knife, apples, raw steak";
+			//inventory[0,1,2,3,4,5] = "Bandages, a stick, a rock, a knife, apples, raw steak";
+			inventory[0] = "Bandages";
+			inventory[1] = "a stick";
+			inventory[2] = "a rock";
+			inventory[3] = "a knife";
+			inventory[4] = "apples";
+			inventory[5] = "raw steak";
 
 			break;
 
@@ -148,20 +154,26 @@ int main() {
 
 			if (input == "Continue" || input.compare("Keep going") == 0)
 				room = 9;
-			
+
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 3;
-		    
-			
-			if (inventory[0] == "Bandages") {
-				cout << "You use Bandages" << endl;
-				inventory[1] = " ";
-				PlayerHealth += 50;
+			else if (input == "Bandages" || input.compare("Use Bandages") == 0) {
+				if (inventory[0] != "Bandages") {
+					cout << "you use the wrong item" << endl;
+					PlayerHealth -= 20;
+				}
+				else {
+					cout << "You use Bandages" << endl;
+					PlayerHealth += 50;
+					inventory[0] != " ";
+				}
+
+
 			}
+				
+
 			
-			else
-				cout << "you use the wrong item" << endl;
-			PlayerHealth -= 20;
+			 
 
 			break;
 
@@ -176,13 +188,18 @@ int main() {
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 8;
 			
-			if (input == "steak" || input.compare("raw steak") == 0){
-				if (inventory[5] == "raw steak") {
-					cout << "You feed the lion with a steak and he seems happy." << endl;
-					inventory[5] = " ";
+			else if (input == "raw steak" || input.compare("raw steak") == 0) {
+				if (inventory[5] != "raw steak") {
+					cout << "The lion attacks you, you are now bleeding to much" << endl;
+					PlayerHealth -= 60;
 				}
-				else cout << "The lion charges at you and attacks you. Likely because you gave him the wrong item!!!" << endl;
-				PlayerHealth -= 60;
+				else {
+					cout << "You feed the lion with a steak and he now feels happy. But you must run since he's going to attack you" << endl;
+					PlayerHealth += 50;
+					inventory[0] != " ";
+				}
+
+
 			}
 		
 			break;
