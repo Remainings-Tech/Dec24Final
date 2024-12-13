@@ -14,6 +14,7 @@ int main() {
 	string input = "potato";
 	void BattleSystem();
 	bool hasWon = false;
+	srand(time(NULL));
 
 	while (input != "quit") {
 
@@ -34,6 +35,7 @@ int main() {
 			break;
 
 		case 2:
+			system("color CF");
 			cout << "------------------------Nice, it seems like you decided to follow the dirt pathway, and now you're in a field with a bunch of flowers and plants with butterflies and insects. Beautiful isn't it? Now you may be wondering. How did you end up in a forest and somehow 'survive'? Well, here's what happened. You and your friends went up to the mountains and had one of the best days ever. The situation is that the mountains you are climbing are very risky and there's a chance you will fall off. Apparently, while you made it atop the mountain and planned to go down. You accidentally trip on a rock and suddenly..... You fell........ You were panicking, and your friends saw your body falling and felt shocked horror and screams. You now hit the ground, which causes you to be knocked out and, luckily, you somehow survive, but it's pretty hard to walk since you have a broken leg. Now that I explain the backstory, it's time to move on. You start wandering the plains, and you notice there's a river that is flowing west and there's some supplies. Press 'Go forward' to continue, but you can 'Go Back' to the forest, since there's nothing you can do there----------------------------" << endl;
 			
 			getline(cin, input);
@@ -48,7 +50,7 @@ int main() {
 			break;
 
 		case 3:
-			cout << "You notice a sign showing where the road leads. To the left is a road that seems to be a route, but you start feeling uneasy due to the lack of cars and the sensation of being watched. And to the right, it leads more trees which is assuming you will go to another forest that leads a waterfall mountain. Which path should you go? left or right?" << endl;
+			cout << "You notice a sign showing where the road leads. To the left is a road that seems to be a route, but you start feeling uneasy due to the lack of cars and the sensation of being watched. And to the right, it leads more trees which is assuming you will go to another forest that leads a waterfall mountain. Which path should you go? Type 'Go Left' or 'Go Right'" << endl;
 			if (inventory[0,1,2,3,4,5] != "Bandages, a stick, a rock, a knife, apples, raw steak")
 				cout << "Meanwhile, Hey Look, theres some Bandages, a stick, a rock, a knife, apples and a raw steak on the ground, Type 'Pick up all the items' that seems pretty important" << endl;
 
@@ -141,17 +143,8 @@ int main() {
 
 		case 8://Good ending :)
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
-			cout << "Your legs is hurting painful and blood is coming out, Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
+			cout << "Your legs is hurting painful and blood is coming out, If you have supplies. Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
 			getline(cin, input);
-	
-			if (inventory[0] != "Bandages") {
-				inventory[0] = "Bandages";
-				cout << "You have bandages, You now have 20+ health" << endl;
-				inventory[0] = " ";
-				PlayerHealth += 20;
-			}
-			else cout << "you use the wrong item" << endl;
-			    PlayerHealth -= 20;
 
 			if (input == "Continue" || input.compare("Keep going") == 0)
 				room = 9;
@@ -160,6 +153,16 @@ int main() {
 				room = 3;
 		    
 			
+			if (inventory[0] == "Bandages") {
+				cout << "You use Bandages" << endl;
+				inventory[1] = " ";
+				PlayerHealth += 50;
+			}
+			
+			else
+				cout << "you use the wrong item" << endl;
+			PlayerHealth -= 20;
+
 			break;
 
 		case 9:
@@ -220,12 +223,12 @@ void BattleSystem() {
 		switch (choice) {
 		case 1:
 			if (inventory[7] == "Axe") {
-				hit = rand() % 11 + 10; //swing
+				hit = rand() % 12 + 12; //swing
 				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
 				Wendigohealth -= hit;
 			}
 			else {
-				hit = rand() % 5 + 2; //swing
+				hit = rand() % 6 + 3; //swing
 				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
 				Wendigohealth -= hit;
 
