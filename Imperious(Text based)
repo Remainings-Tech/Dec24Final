@@ -2,10 +2,10 @@
 #include<iostream>
 #include<string>
 using namespace std;
-
+ 
 //global variables (can be seen and used by ALL functions)mo says: move inventory and player health here!
 int PlayerHealth = 80;
-string inventory[8];
+string inventory[7];
 
 //mo says: move inventory and player health here!
 int main() {
@@ -25,7 +25,7 @@ int main() {
 
 		switch (room) {
 		case 1:
-			cout << "Hey you, you're finally awake. Don't panick, but you're in a forest in the middle of nowhere. That means there're trees everywhere; no humans or animals. There are some nice looking mountains. In the distance, you see a plain of grass with flowers up in the south where there's only 1 pathway that is covered with dirt and that's it. Should we follow the dirt path? Press 'Yes' to follow the path? It's the only choice.'" << endl;
+			cout << "Hey you, you're finally awake. Don't panick, but you're in a forest in the middle of nowhere. That means there're trees everywhere; no humans or animals. There are some nice looking mountains. In the distance, you see a plain of grass with flowers up in the south where there's only 1 pathway that is covered with dirt and that's it. Should we follow the dirt path? Type 'Yes' to follow the path? It's the only choice.'" << endl;
 			getline(cin, input);
 			if (input == "Yes")
 				room = 2;
@@ -35,8 +35,7 @@ int main() {
 			break;
 
 		case 2:
-			system("color CF");
-			cout << "------------------------Nice, it seems like you decided to follow the dirt pathway, and now you're in a field with a bunch of flowers and plants with butterflies and insects. Beautiful isn't it? Now you may be wondering. How did you end up in a forest and somehow 'survive'? Well, here's what happened. You and your friends went up to the mountains and had one of the best days ever. The situation is that the mountains you are climbing are very risky and there's a chance you will fall off. Apparently, while you made it atop the mountain and planned to go down. You accidentally trip on a rock and suddenly..... You fell........ You were panicking, and your friends saw your body falling and felt shocked horror and screams. You now hit the ground, which causes you to be knocked out and, luckily, you somehow survive, but it's pretty hard to walk since you have a broken leg. Now that I explain the backstory, it's time to move on. You start wandering the plains, and you notice there's a river that is flowing west and there's some supplies. Press 'Go forward' to continue, but you can 'Go Back' to the forest, since there's nothing you can do there----------------------------" << endl;
+			cout << "------------------------Nice, it seems like you decided to follow the dirt pathway, and now you're in a field with a bunch of flowers and plants with butterflies and insects. Beautiful isn't it? Now you may be wondering. How did you end up in a forest and somehow 'survive'? Well, here's what happened. You and your friends went up to the mountains and had one of the best days ever. The situation is that the mountains you are climbing are very risky and there's a chance you will fall off. Apparently, while you made it atop the mountain and planned to go down. You accidentally trip on a rock and suddenly..... You fell........ You were panicking, and your friends saw your body falling and felt shocked horror and screams. You now hit the ground, which causes you to be knocked out and, luckily, you somehow survive, but it's pretty hard to walk since you have a broken leg. Now that I explain the backstory, it's time to move on. You start wandering the plains, and you notice there's a river that is flowing west and there's some supplies. Type 'Go forward' to continue, but you can 'Go Back' to the forest, since there's nothing you can do there----------------------------" << endl;
 			
 			getline(cin, input);
 			if (input == "foward" || input.compare("Go foward") == 0)
@@ -62,19 +61,20 @@ int main() {
 			else if (input == "Right" || input.compare("Go Right") == 0)
 				room = 4;
 
-			else if (input == "Bandages, a stick, a rock, a knife, apples, raw steak" || input.compare("Pick up all the items") == 0)
-				cout << "You got 6 items in your inventory!!!!!!!!!!!!!!" << endl;
+			else if (input == "Bandages, a stick, a rock, a knife, apples, steak" || input.compare("Pick up all the items") == 0)
+				cout << "You have 6 items in your inventory, with two of each.!!!!!!!!!!!!!!" << endl;
 			//inventory[0,1,2,3,4,5] = "Bandages, a stick, a rock, a knife, apples, raw steak";
 			inventory[0] = "Bandages";
 			inventory[1] = "a stick";
 			inventory[2] = "a rock";
 			inventory[3] = "a knife";
 			inventory[4] = "apples";
-			inventory[5] = "raw steak";
+			inventory[5] = "steak";
 
 			break;
 
 		case 4://bad ending :(
+			system("color CF");
 			cout << "Interesting choice. You decided to go the right way, where you enter a new forest, but something isn’t quite right. It’s dark, gloomy, foggy, and eerie. Suddenly, you trip and realize your leg doesn’t hurt anymore. It seems like you've ended up in a forest full of unnatural things. Suddenly, your nervous system detects signs of being watched, and you start to feel uncomfortable. As you continue, you notice a deer in the distance, but something isn’t quite right. The deer’s eyes begin to glow, and then, suddenly, it stands up on two legs, its hands turning into claw-like fingers, before it runs away. Now this is pretty crazy, should you continue the pathway to end up at a mountain along? Type 'Continue On'. or  Type 'Go Back' to get rid of your nervous" << endl;
 			cout << "|/    |/" << endl;
 			cout << " |    / " << endl;
@@ -97,16 +97,16 @@ int main() {
 			break;
 
 		case 5:
-			cout << "Since you decided to continue on. The forest gets darker every time you keep going forward without turning back......... Wait, you are now lost.... The pathway is nowhere to be found........ You have now somehow gone too far to explore the unnatural forest. You suddenly feel about to panick panicked, but right, panicked you're panicking. The nerves suddenly come back and warn you again if something is near you. You look everywhere, and you see the same dear, with its glowing eyes see-You stare at it and then suddenly..................... The deer begins to stand with it's 2 legs and......... his mouth is wide open and there's blood on it......... and begins to charge at you. There's no going back because you're stuck.  You must run immediately, but the only way to outrun it is to 'Go Right' and that's all." << endl;
+			cout << "Since you decided to continue on, the forest gets darker every time you move forward without turning back... Wait, you are now lost. The pathway is nowhere to be found. You’ve somehow gone too far to explore the unnatural forest. You suddenly feel a panic rising. The nerves return, warning you that something might be near. You look everywhere and spot the same deer, its glowing eyes staring at you. You gaze at it, and then, suddenly... The deer begins to stand on its two legs, and its mouth is wide open, blood dripping from it. It charges at you. There’s no going back because you’re stuck. You must run immediately, but the only way to outrun it is to 'Go Right,' and that’s all." << endl;
 			getline(cin, input);
-			
+	
 			if (input == "Right" || input.compare("Go Right") == 0)
 				room = 6;
 
 			break;
 
 		case 6:
-			cout << "The deer's claws are now ready to charge...... it seems like you're running away from a Wendigo, an urban legend that is a humanoid. The deer is said to roam in a forest. You keep running and suddenly you keep getting tired. You have no choice but to eat the apple or save it. Right about when you are running in a straight line, luckily there's another way to go and south, and you notice that it's a dead end with no way. You're only option is to type 'Follow the path' to continue the story" << endl;
+			cout << "The deer's claws are now ready to charge... It seems like you're running away from a Wendigo, an urban legend about a humanoid creature. The Wendigo is said to roam the forest. You keep running, but suddenly you start to get tired. Just when you think you’re running in a straight line, you notice another path to the south. Unfortunately, it leads to a dead end with no way out. Your only option is to type 'Follow the path' to continue the story." << endl;
 			getline(cin, input);
 		
 			if (input == "Follow" || input.compare("Follow the path") == 0)
@@ -131,28 +131,29 @@ int main() {
 			    cout << "||" << endl;
 			    cout << "||" << endl;
 			    
-			
-				inventory[0,4,5,6] = "Bandages, apples, raw steak, Axe";
-		    
-				system("Color C4");
-				
-
+				inventory[0] = "Bandages";
+				inventory[4] = "apples";
+				inventory[5] =  "steak";
+				inventory[6] = "Axe";
+					
 			break;
 
 		case 11://boss battle but its the bad ending for choosing right to go wrong way (Right = go to the forest) :(
+		
 			cout << "You now have an AXE, It's time for a BOSS BATTLE" << endl;
 			
 			for (int i = 0; i < 7; i++)
 
-		    BattleSystem();
+			BattleSystem();
 			system("pause");
 
 		case 8://Good ending :)
+			system("Color A0");
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
-			cout << "Your legs is hurting painful and blood is coming out, If you have supplies. Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a raw steak" << endl;
+			cout << "Your legs is hurting painful and blood is coming out, If you have supplies. Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a steak" << endl;
 			getline(cin, input);
 
-			if (input == "Continue" || input.compare("Keep going") == 0)
+			if (input == "Continue" || input.compare("Keep Going") == 0)
 				room = 9;
 
 			else if (input == "Back" || input.compare("Go Back") == 0)
@@ -166,15 +167,16 @@ int main() {
 					cout << "You use Bandages" << endl;
 					PlayerHealth += 50;
 					inventory[0] != " ";
+				
+					inventory[1] = "a stick";
+					inventory[2] = "a rock";
+					inventory[3] = "a knife";
+					inventory[4] = "apples";
+					inventory[5] = "steak";
 				}
 
-
 			}
-				
-
 			
-			 
-
 			break;
 
 		case 9:
@@ -188,14 +190,14 @@ int main() {
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 8;
 			
-			else if (input == "raw steak" || input.compare("raw steak") == 0) {
-				if (inventory[5] != "raw steak") {
+			else if (input == "steak" || input.compare("steak") == 0) {
+				if (inventory[5] != "steak") {
 					cout << "The lion attacks you, you are now bleeding to much" << endl;
 					PlayerHealth -= 60;
 				}
 				else {
 					cout << "You feed the lion with a steak and he now feels happy. But you must run since he's going to attack you" << endl;
-					PlayerHealth += 50;
+					PlayerHealth += 10;
 					inventory[0] != " ";
 				}
 
@@ -231,18 +233,19 @@ void BattleSystem() {
 	int Wendigohealth = 220;
 	int hit;
 	int choice;
-
 	cout << endl << "--------BATTLE!!!-------------" << endl;
-	
+	cout << "Wendigo begins to attack you" << endl;
 	while (PlayerHealth > 0 && Wendigohealth > 0) {
-		cout << "press 1 to eat the apple to heal, 2 to use bandages for mega heal!" << endl;
+	    //player attacks
+		cout << "press 1 to eat the apple to heal, 2 to use bandages for mega heal! press any key to continue...();" << endl;
 		cin >> choice;
 		switch (choice) {
 		case 1:
-			if (inventory[7] == "Axe") {
+			if (inventory[6] == "Axe") {
 				hit = rand() % 12 + 12; //swing
 				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
 				Wendigohealth -= hit;
+				cout << "press any key to continue..." << endl;
 			}
 			else {
 				hit = rand() % 6 + 3; //swing
