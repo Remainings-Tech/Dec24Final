@@ -4,7 +4,7 @@
 using namespace std;
  
 //global variables (can be seen and used by ALL functions)mo says: move inventory and player health here!
-int PlayerHealth = 80;
+int PlayerHealth = 100;
 string inventory[7];
 
 //mo says: move inventory and player health here!
@@ -19,7 +19,7 @@ int main() {
 	while (input != "quit") {
 
 		for (int i = 0; i < 7; i++)
-		cout << inventory[i] << " ";
+			inventory[i] = " ";
 		cout << endl << endl;
 		cout << "your health: " << PlayerHealth << endl << endl;
 
@@ -141,8 +141,6 @@ int main() {
 		case 11://boss battle but its the bad ending for choosing right to go wrong way (Right = go to the forest) :(
 		
 			cout << "You now have an AXE, It's time for a BOSS BATTLE" << endl;
-			
-			for (int i = 0; i < 7; i++)
 
 			BattleSystem();
 			system("pause");
@@ -230,62 +228,40 @@ int main() {
 void BattleSystem() {
 	
 	//Battlesystem LOCAL variables (can only be seen and used by THIS function)
-	int Wendigohealth = 220;
-	int hit;
-	int choice;
-	cout << endl << "--------BATTLE!!!-------------" << endl;
-	cout << "Wendigo begins to attack you" << endl;
-	while (PlayerHealth > 0 && Wendigohealth > 0) {
-	    //player attacks
-		cout << "press 1 to eat the apple to heal, 2 to use bandages for mega heal! press any key to continue...();" << endl;
-		cin >> choice;
-		switch (choice) {
-		case 1:
-			if (inventory[6] == "Axe") {
-				hit = rand() % 12 + 12; //swing
-				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
-				Wendigohealth -= hit;
-				cout << "press any key to continue..." << endl;
-			}
-			else {
-				hit = rand() % 6 + 3; //swing
-				cout << "You slash the monster with your axe for" << hit << " dmg" << endl;
-				Wendigohealth -= hit;
+	int MonsterHealth = 120; //Local variables:
+	int damage;
+	char dummy;
+	cout << endl << endl << "-------Monster Battle-------------" << endl;
+	cout << "Wendigo attacks you!" << endl;
+	while (PlayerHealth > 0 && MonsterHealth > 0) {
+		//player attacks
+		damage = rand() % 19 + 5; //number between 5 and 15
+		cout << "You hit the monster for " << damage << "damage." << endl;
+		MonsterHealth -= damage;
+		cout << "press any key to continue..." << endl;
+		cin >> dummy;
 
-				cout << "the monster attacks you 20 dmg" << endl;
-				PlayerHealth -= 20;
-			}
-			break;
-		case 2:
-			if (inventory[1] == "apples") {
-				cout << "Eating noises" << endl;
-				inventory[1] = " ";
-				PlayerHealth += 50;
-			
-			}
-		
-			break;
-		case 3:
-			if (inventory[0] == "Bandages") {
-				cout << "uses bandages" << endl;
-				inventory[0] = " ";
-				PlayerHealth += 50;
 
-			}
-            
-			break;
-		case 4:
-			hit = rand() % 100;
-			if (hit > 50) {
-				cout << "You did it! But you're still stuck and theres no freedom :(" << endl;
-				Wendigohealth = 0;
-			}
-			break;
-			
-			cout << "Playerhealth is now " << PlayerHealth << endl;
-			cout << "Wendigohealth is now " << Wendigohealth << endl;
+		//monster attack
+		damage = rand() % 21 + 5; //number between 5 and 25
+		cout << "The monster hits you for " << damage << "damage." << endl;
+		PlayerHealth -= damage;
 
-		}//end switch
-	}	
-		cout << "--------------------------------------------" << endl;
+		//printing health
+		if (PlayerHealth > 0)
+			cout << "Your health: " << PlayerHealth << endl;
+		else
+			cout << "You are dead. MUHAHAHAHAHA." << endl;
+
+		if (MonsterHealth > 0)
+			cout << "Monster Health: " << MonsterHealth << endl;
+		else
+			cout << "You are victorious" << endl;
+
+		cout << "Your health:" << PlayerHealth << endl;
+		cout << "Monster Health:" << MonsterHealth << endl;
+		cout << "press any key to continue..." << endl;
+		cin >> dummy;
+	}//end of miniloop
+	cout << "----------------- end of battle---------------------" << endl << endl;
 }
