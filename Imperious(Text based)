@@ -11,15 +11,15 @@ string inventory[7];
 int main() {
 
 	int room = 1;
+	for (int i = 0; i < 7; i++)
+	inventory[i] = " ";
 	string input = "potato";
 	void BattleSystem();
 	bool hasWon = false;
-	srand(time(NULL));
-
+	
 	while (input != "quit") {
 
-		for (int i = 0; i < 7; i++)
-			inventory[i] = " ";
+		
 		cout << endl << endl;
 		cout << "your health: " << PlayerHealth << endl << endl;
 
@@ -148,7 +148,7 @@ int main() {
 		case 8://Good ending :)
 			system("Color A0");
 			cout << "Huh... Great choice... You know you go where there's a highway road, but if you look around, the mile stretches are very straight, and you have nowhere to go, but it ends at where you're at. There are construction signs that the road is unfinished. Type 'Keep Going' forward or 'Go Back'" << endl;
-			cout << "Your legs is hurting painful and blood is coming out, If you have supplies. Which supplies do you think it will help you to stop the wound so you dont loose your blood? Bandages, a stick, a rock, a knife, apples or a steak" << endl;
+			cout << "Your legs is hurting painful and blood is coming out, If you have supplies. Which supplies do you think it will help you to stop the wound so you dont loose your blood? Type 'Bandages' or, a stick, a rock, a knife, apples or a steak" << endl;
 			getline(cin, input);
 
 			if (input == "Continue" || input.compare("Keep Going") == 0)
@@ -195,9 +195,15 @@ int main() {
 					PlayerHealth -= 60;
 				}
 				else {
-					cout << "You feed the lion with a steak and he now feels happy. But you must run since he's going to attack you" << endl;
+					cout << "You feed the lion with a steak and he now feels happy. But you must run since he's going to attack you. Type 'Keep going'" << endl;
 					PlayerHealth += 10;
 					inventory[5] != " ";
+				
+					inventory[1] = "a stick";
+					inventory[2] = "a rock";
+					inventory[3] = "a knife";
+					inventory[4] = "apples";
+					
 				}
 
 
