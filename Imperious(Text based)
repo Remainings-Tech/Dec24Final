@@ -2,7 +2,7 @@
 #include<iostream>
 #include<string>
 using namespace std;
- 
+
 //global variables (can be seen and used by ALL functions)mo says: move inventory and player health here!
 int PlayerHealth = 100;
 string inventory[7];
@@ -36,7 +36,7 @@ int main() {
 
 		case 2:
 			cout << "------------------------Nice, it seems like you decided to follow the dirt pathway, and now you're in a field with a bunch of flowers and plants with butterflies and insects. Beautiful isn't it? Now you may be wondering. How did you end up in a forest and somehow 'survive'? Well, here's what happened. You and your friends went up to the mountains and had one of the best days ever. The situation is that the mountains you are climbing are very risky and there's a chance you will fall off. Apparently, while you made it atop the mountain and planned to go down. You accidentally trip on a rock and suddenly..... You fell........ You were panicking, and your friends saw your body falling and felt shocked horror and screams. You now hit the ground, which causes you to be knocked out and, luckily, you somehow survive, but it's pretty hard to walk since you have a broken leg. Now that I explain the backstory, it's time to move on. You start wandering the plains, and you notice there's a river that is flowing west and there's some supplies. Type 'Go forward' to continue, but you can 'Go Back' to the forest, since there's nothing you can do there----------------------------" << endl;
-			
+
 			getline(cin, input);
 			if (input == "foward" || input.compare("Go foward") == 0)
 				room = 3;
@@ -44,7 +44,7 @@ int main() {
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 1;
 
-			
+
 
 			break;
 
@@ -63,7 +63,7 @@ int main() {
 
 			else if (input == "Bandages, a stick, a rock, a knife, apples, steak" || input.compare("Pick up all the items") == 0)
 				cout << "You have 6 items in your inventory, with two of each.!!!!!!!!!!!!!!" << endl;
-			//inventory[0,1,2,3,4,5] = "Bandages, a stick, a rock, a knife, apples, raw steak";
+		    //inventory[0,1,2,3,4,5] = "Bandages, a stick, a rock, a knife, apples, raw steak";
 			inventory[0] = "Bandages";
 			inventory[1] = "a stick";
 			inventory[2] = "a rock";
@@ -85,7 +85,7 @@ int main() {
 			cout << "        ||   | |" << endl;
 			cout << "        ||    ||" << endl;
 			cout << "        '     '" << endl;
-		
+
 			getline(cin, input);
 
 			if (input == "Continue" || input.compare("Continue On") == 0)
@@ -93,13 +93,13 @@ int main() {
 
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 3;
-			
+
 			break;
 
 		case 5:
 			cout << "Since you decided to continue on, the forest gets darker every time you move forward without turning back... Wait, you are now lost. The pathway is nowhere to be found. You’ve somehow gone too far to explore the unnatural forest. You suddenly feel a panic rising. The nerves return, warning you that something might be near. You look everywhere and spot the same deer, its glowing eyes staring at you. You gaze at it, and then, suddenly... The deer begins to stand on its two legs, and its mouth is wide open, blood dripping from it. It charges at you. There’s no going back because you’re stuck. You must run immediately, but the only way to outrun it is to 'Go Right,' and that’s all." << endl;
 			getline(cin, input);
-	
+
 			if (input == "Right" || input.compare("Go Right") == 0)
 				room = 6;
 
@@ -108,7 +108,7 @@ int main() {
 		case 6:
 			cout << "The deer's claws are now ready to charge... It seems like you're running away from a Wendigo, an urban legend about a humanoid creature. The Wendigo is said to roam the forest. You keep running, but suddenly you start to get tired. Just when you think you’re running in a straight line, you notice another path to the south. Unfortunately, it leads to a dead end with no way out. Your only option is to type 'Follow the path' to continue the story." << endl;
 			getline(cin, input);
-		
+
 			if (input == "Follow" || input.compare("Follow the path") == 0)
 				room = 7;
 
@@ -117,31 +117,31 @@ int main() {
 		case 7:
 			cout << "Uh oh, you're trapped. You have nowhere to go. Meanwhile Wendigo has stopped chasing you, but  he is in front of you. Now as of--" << endl;
 			cout << "Wendigo: *GROWLS UPSETELY*" << endl;
-			cout << "Uhhhhhhh. It seems like Wendigo doesn't want you to kill you and wants to fight you and trap you forever. I really don't know how to say this but, you're trapped now. But wait. You have all the supplies. Maybe you can make a weapon to combine some of your items. How about you make an axe? Type 'Craft a stick, a rock and a knife' to create an axe and if you're finished, Type 'Ready' to begin the fight"  << endl;
+			cout << "Uhhhhhhh. It seems like Wendigo doesn't want you to kill you and wants to fight you and trap you forever. I really don't know how to say this but, you're trapped now. But wait. You have all the supplies. Maybe you can make a weapon to combine some of your items. How about you make an axe? Type 'Craft a stick, a rock and a knife' to create an axe and if you're finished, Type 'Ready' to begin the fight" << endl;
 			getline(cin, input);
-			
+
 			if (input == "Ready")
 				room = 11;
-		    
-			else if (input == "a stick, a rock, a knife" || input.compare("Craft a stick, a rock and a knife") == 0)
+
+			else if (input == "a stick, a rock, a knife" || input.compare("Craft a stick, a rock and a knife") == 0) {
 				cout << "You Crafted an axe!!!!!!!!!!!!!!" << endl;
-			    cout << "_, -," << endl;
-			    cout << "T_  |" << endl;
-			    cout << "||`-'" << endl;
-			    cout << "||" << endl;
-			    cout << "||" << endl;
-			    
+				cout << "_, -," << endl;
+				cout << "T_  |" << endl;
+				cout << "||`-'" << endl;
+				cout << "||" << endl;
+				cout << "||" << endl;
+
 				inventory[0] = "Bandages";
 				inventory[4] = "apples";
-				inventory[5] =  "steak";
+				inventory[5] = "steak";
 				inventory[6] = "Axe";
-					
+			}
 			break;
 
 		case 11://boss battle but its the bad ending for choosing right to go wrong way (Right = go to the forest) :(
-		
-			cout << "You now have an AXE, It's time for a BOSS BATTLE" << endl;
 
+			cout << "You're fighting Wendigo" << endl;
+			system("color 04");
 			BattleSystem();
 			system("pause");
 
@@ -156,16 +156,17 @@ int main() {
 
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 3;
+			
 			else if (input == "Bandages" || input.compare("Use Bandages") == 0) {
 				if (inventory[0] != "Bandages") {
-					cout << "you use the wrong item" << endl;
+					cout << "you use the wrong item or you didn't type it" << endl;
 					PlayerHealth -= 20;
 				}
 				else {
 					cout << "You use Bandages" << endl;
 					PlayerHealth += 50;
 					inventory[0] != " ";
-				
+
 					inventory[1] = "a stick";
 					inventory[2] = "a rock";
 					inventory[3] = "a knife";
@@ -174,20 +175,20 @@ int main() {
 				}
 
 			}
-			
+
 			break;
 
 		case 9:
 			cout << "The road is pretty isolated and calm, the peaceful winds blowing through the trees, the beautiful sun hitting your body, and water. You still continued on until you notice that in the distance, you see some lights but it isn't the sun, the sun location is somehwere around 90 degrees, but you also hear some voices too. But as of now hearing it, you're still left spechless, should you Continue on? Type 'Keep going' or if you want to go back, type 'Go Back'!" << endl;
 			cout << "I hate to bring you up, there's a lion that is fully awake and its slowly coming up to you, its growling, and it's ready to eat. Wait, you have supplies on the other hand, which supplies do you think that can stop the lion growing and feel happy? Bandages, a stick, a rock, a knife, apples or a raw steak? Type 'Bandages' or 'a stick' or, 'a rock' or, 'a knife' or, 'raw steak'?" << endl;
 			getline(cin, input);
-		
+
 			if (input == "Continue" || input.compare("Keep going") == 0)
 				room = 10;
-		
+
 			else if (input == "Back" || input.compare("Go Back") == 0)
 				room = 8;
-			
+
 			else if (input == "steak" || input.compare("steak") == 0) {
 				if (inventory[5] != "steak") {
 					cout << "The lion attacks you, you are now bleeding to much" << endl;
@@ -196,39 +197,39 @@ int main() {
 				else {
 					cout << "You feed the lion with a steak and he now feels happy. But you must run since he's going to attack you" << endl;
 					PlayerHealth += 10;
-					inventory[0] != " ";
+					inventory[5] != " ";
 				}
 
 
 			}
-		
+
 			break;
 
 		case 10://The good ending for choosing the right pathway.
 			cout << "Since you handle the lion, you're ready to run. While you're still running, the lion is no longer seen and then, in the distance, you see a town with civilians and they're doing their normal routine. You have finally reached your destination with some help. The people are very friendly, but you don't see your friends. Type 'Go back' to go back but, however, you have finally reached your journey :)" << endl;
 			cout << "the end" << endl;
-		
+
 			getline(cin, input);
 			hasWon = true;
-			
+
 			if (input == "Back" || input.compare("Go Back") == 0)
 				room = 9;
-			
+
 			break;
 
 		}
 	}//end of game loop
 	if (PlayerHealth <= 0)
 		cout << "You got a bad ending because to losing the battle against Wendigo, or you're now stuck in this gloomy forest. " << endl;
-	
+
 	else
 		cout << "Congrats, you got the good ending :). It's unknown why you were feeling nervous about fearing you're being watched, but who knows the mystery will never be solved." << endl;
 }//end main
 
 void BattleSystem() {
-	
+
 	//Battlesystem LOCAL variables (can only be seen and used by THIS function)
-	int MonsterHealth = 120; //Local variables:
+	int MonsterHealth = 170; //Local variables:
 	int damage;
 	char dummy;
 	cout << endl << endl << "-------Monster Battle-------------" << endl;
